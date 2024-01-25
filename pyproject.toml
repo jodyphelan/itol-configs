@@ -17,4 +17,4 @@ docs = [
 ]
 
 [project.scripts]
-itol-configs = "itol_configs:cli"
+itol-configs = "itol_configs.cli:cli"
