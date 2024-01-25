@@ -9,3 +9,4 @@ plugins:
       python:
         options:
           docstring_style: numpy
+- search
