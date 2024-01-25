@@ -1,6 +1,6 @@
 # itol-configs
 
-To annotate trees in [iTOL](https://itol.embl.de/) requres special config files.
+To annotate trees in [iTOL](https://itol.embl.de/) requres special config files that are time-consuming to create.
 This python package contains functions to create configuration files automatically from a CSV file.
 
 ## Installation
