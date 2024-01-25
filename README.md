@@ -40,4 +40,4 @@ If you want to contribute a new annotation type this package, please clone the r
 
 ### Adding a new annotation type
 
-Each annotation type is defined as a class in [itol_configs/interfacer](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples.
+Each annotation type is defined as a class in [itol_configs/interfaces](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples.
