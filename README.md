@@ -9,7 +9,7 @@ This python package contains functions to create configuration files automatical
 pip install git+https://github.com/jodyphelan/itol-configs.git
 ```
 
-## Usage
+## CLI Usage
 
 This command will automatically create a config file for each column in the specified input csv file.
 
