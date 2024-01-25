@@ -2,11 +2,18 @@ from typing import Optional
 from .base_interface import ConfigWriter
 from .colour_strip import ColourStripConfigWriter
 from .text_label import TextConfigWriter
+from .binary_data import BinaryConfigWriter
 
-interface_types = {
+single_interface_types = {
     "colour_strip":ColourStripConfigWriter,
-    "text_label":TextConfigWriter
+    "text_label":TextConfigWriter,
 }
+
+matrix_interface_types = {
+    "binary_data":BinaryConfigWriter
+}
+
+interface_types = {**single_interface_types,**matrix_interface_types}
 
 def get_config_writer(config_type: str, data: dict, label: str, colour_lookup: Optional[dict] = None) -> ConfigWriter:
     """

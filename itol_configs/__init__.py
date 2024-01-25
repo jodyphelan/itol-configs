@@ -2,7 +2,7 @@
 import argparse
 import csv
 from typing import Dict
-from .interfaces import get_config_writer, interface_types
+from .interfaces import get_config_writer, interface_types, matrix_interface_types
 from .colour import load_colour_conf
 
 __version__ = "0.1.0"
@@ -61,6 +61,29 @@ def load_data(input_file: str, id_column: str) -> Dict[str,dict]:
             data[column] = {row[id_column]:row[column] for row in rows}
     return data
 
+def load_matrix_data(input_file: str, id_column: str) -> Dict[str,dict]:
+    """
+    Load data from a csv file.
+    
+    Parameters
+    ----------
+    input_file : str
+        Input file name.
+    id_column : str
+        Column name matching the sequence IDs used in the tree.
+    
+    Returns
+    -------
+    dict
+        Dictionary of dictionaries for each column in the csv file.
+    """
+    data = {}
+    for row in csv.DictReader(open(input_file,encoding="utf-8-sig")):
+        index = row[id_column]
+        del row[id_column]
+        data[index] = row
+    
+    return data
 
 def main(args):
     """
@@ -75,16 +98,21 @@ def main(args):
     -------
     None
     """
-    data = load_data(args.input,args.id)
     if args.colour_conf:
         colour_conf = load_colour_conf(args.colour_conf)
     else:
         colour_conf = {}
-
-    for column in data:
-        output_file = f"{args.output}.{sanitise(column)}.txt"
-        writer = get_config_writer(args.type,data[column],column,colour_conf.get(column,None))
-        writer.write(output_file)
+    
+    if args.type in matrix_interface_types:
+        data = load_matrix_data(args.input,args.id)
+        writer = get_config_writer(args.type,data,args.output,colour_conf)
+        writer.write(args.output + ".txt")
+    else:
+        data = load_data(args.input,args.id)
+        for column in data:
+            output_file = f"{args.output}.{sanitise(column)}.txt"
+            writer = get_config_writer(args.type,data[column],column,colour_conf.get(column,None))
+            writer.write(output_file)
         
 
 
@@ -118,7 +146,7 @@ def cli():
         "--type",
         help="Type of iTOL configuration file to generate",
         type=str,
-        choices=interface_types.keys(),
+        choices=interface_types,
         required=True
     )
     parser.add_argument(
