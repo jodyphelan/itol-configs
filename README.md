@@ -63,4 +63,6 @@ If you want to contribute a new annotation type this package, please clone the r
 
 ### Adding a new annotation type
 
-Each annotation type is defined as a class in [itol_configs/interfaces](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples. Make sure to add your new class to `interfaces_types` dictionary in the `__init__.py` file in the same directory.
+Each annotation type is defined as a class in [itol_configs/interfaces](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples. Make sure to import your new class to the `__init__.py` file in the same directory.
+
+If you want to add this new class to the CLI, you will need to create a python file in the [itol_configs/cli](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/cli) directory and define the functions `run` and `register_subparser`. The `register_subparser` function creates a new subparser for your class and the `run` function defines how the data is loaded and how the new class is used. See existing examples for details.
