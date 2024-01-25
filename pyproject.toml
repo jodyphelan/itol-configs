@@ -9,5 +9,12 @@ license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
 
+[project.optional-dependencies]
+docs = [
+    "mkdocs >=1.0.4",
+    "mkdocstrings[python]",
+    "mkdocs-material >=4.6.3",
+]
+
 [project.scripts]
 itol-configs = "itol_configs:cli"
