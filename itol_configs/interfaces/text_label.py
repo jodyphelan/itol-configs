@@ -10,7 +10,7 @@ LEGEND_TITLE\t%(legend_title)s
 DATA
 """
 
-class TextConfigWriter(ConfigWriter):
+class TextLabelConfigWriter(ConfigWriter):
     def write(self, outfile: str) -> None:
         """
         Parse the data to be coloured.

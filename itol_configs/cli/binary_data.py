@@ -1,5 +1,5 @@
 import argparse
-from ..interfaces.binary_data import BinaryConfigWriter
+from ..interfaces.binary_data import BinaryDataConfigWriter
 from ..utils import load_binary_matrix_data
 from ..colour import load_colour_conf
 
@@ -20,7 +20,7 @@ def run(args: argparse.Namespace) -> None:
     
     
     data = load_binary_matrix_data(args.input,args.id)
-    writer = BinaryConfigWriter(data,args.output,colour_conf,shape=args.symbol)
+    writer = BinaryDataConfigWriter(data,args.output,colour_conf,shape=args.symbol)
     writer.write(args.output + ".txt")
 
 

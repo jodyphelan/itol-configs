@@ -14,7 +14,7 @@ FIELD_LABELS\t%(field_labels)s
 DATA
 """
 
-class BinaryConfigWriter(ConfigWriterMatrix):    
+class BinaryDataConfigWriter(ConfigWriterMatrix):    
     def __init__(self, data: Dict[str,dict], label: str, colour_lookup: Optional[dict] = None, shape: int = 2,):
         """
         Initialise a ConfigWriter object.

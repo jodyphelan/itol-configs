@@ -1,5 +1,5 @@
 import argparse
-from ..interfaces.text_label import TextConfigWriter
+from ..interfaces.text_label import TextLabelConfigWriter
 from ..utils import load_data, sanitise
 from ..colour import load_colour_conf
 
@@ -22,7 +22,7 @@ def run(args: argparse.Namespace) -> None:
     data = load_data(args.input,args.id)
     for column in data:
         output_file = f"{args.output}.{sanitise(column)}.txt"
-        writer = TextConfigWriter(data[column],column,colour_conf.get(column,None))
+        writer = TextLabelConfigWriter(data[column],column,colour_conf.get(column,None))
         writer.write(output_file)
 
 def register_subparser(subparsers: argparse._SubParsersAction) -> None:
