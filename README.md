@@ -17,7 +17,7 @@ This command will automatically create a config file for each column in the spec
 itol-configs --input <input.csv> --out <prefix_for_output_files> --id <id_column> --type <annotation_type>
 ```
 
-If you you already have colours in mind you can specify them with the `--colour-conf` option. This requires a toml file with the following format:
+If you you already have colours in mind, you can specify them with the `--colour-conf` option. This requires a toml file with the following format:
 
 ```toml
 [Column_name_1]
