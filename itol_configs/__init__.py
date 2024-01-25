@@ -61,7 +61,7 @@ def load_data(input_file: str, id_column: str) -> Dict[str,dict]:
             data[column] = {row[id_column]:row[column] for row in rows}
     return data
 
-def load_matrix_data(input_file: str, id_column: str) -> Dict[str,dict]:
+def load_binary_matrix_data(input_file: str, id_column: str) -> Dict[str,dict]:
     """
     Load data from a csv file.
     
@@ -81,7 +81,10 @@ def load_matrix_data(input_file: str, id_column: str) -> Dict[str,dict]:
     for row in csv.DictReader(open(input_file,encoding="utf-8-sig")):
         index = row[id_column]
         del row[id_column]
+        print(set(row.values()))
+        assert set(row.values()).issubset(set(["0","1"])), "Binary matrix must contain only 0s and 1s"
         data[index] = row
+
     
     return data
 
@@ -104,7 +107,7 @@ def main(args):
         colour_conf = {}
     
     if args.type in matrix_interface_types:
-        data = load_matrix_data(args.input,args.id)
+        data = load_binary_matrix_data(args.input,args.id)
         writer = get_config_writer(args.type,data,args.output,colour_conf)
         writer.write(args.output + ".txt")
     else:
