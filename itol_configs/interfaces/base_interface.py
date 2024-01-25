@@ -14,8 +14,6 @@ class ConfigWriter(ABC):
         ----------
         data : dict
             Dictionary containing the values to be coloured.
-        output : str
-            Output file name.
         label : str
             Label for the colour strip.
         colour_lookup : Optional[dict]
@@ -46,7 +44,8 @@ class ConfigWriter(ABC):
         
         Parameters
         ----------
-        None
+        outfile : str
+            Output file name.
         
         Returns
         -------

@@ -29,6 +29,29 @@ value1 = "colour"
 value2 = "colour"
 ```
 
+## Use functions in your own scripts
+
+You can also call the functions in your own code. For example:
+
+```python
+from itol_configs import get_config_writer
+import random
+
+# generate some example data
+countries = ["UK", "USA", "France", "Germany", "Spain"]
+data = {f'sample_{i}': random.choice(countries)  for i in range(10)}
+
+# create a config writer
+writer = get_config_writer(
+    config_type="colour_strip", 
+    data=data, 
+    label="Countries"
+)
+outfile = "countries_strip_config.txt"
+writer.write(outfile)
+```
+
+
 ## Developers
 
 The following annotation types are currently supported:
