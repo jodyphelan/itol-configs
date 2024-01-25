@@ -1,7 +1,7 @@
 from typing import Optional
 from .base_interface import ConfigWriter
 from .colour_strip import ColourStripConfigWriter
-from .text import TextConfigWriter
+from .text_label import TextConfigWriter
 
 
 def get_config_writer(config_type: str, data: dict, label: str, colour_lookup: Optional[dict] = None) -> ConfigWriter:
