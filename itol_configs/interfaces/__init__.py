@@ -3,6 +3,10 @@ from .base_interface import ConfigWriter
 from .colour_strip import ColourStripConfigWriter
 from .text_label import TextConfigWriter
 
+interface_types = {
+    "colour_strip":ColourStripConfigWriter,
+    "text_label":TextConfigWriter
+}
 
 def get_config_writer(config_type: str, data: dict, label: str, colour_lookup: Optional[dict] = None) -> ConfigWriter:
     """
@@ -18,9 +22,7 @@ def get_config_writer(config_type: str, data: dict, label: str, colour_lookup: O
     ConfigWriter
         ConfigWriter object.
     """
-    if config_type=="colour_strip":
-        return ColourStripConfigWriter(data,label,colour_lookup)
-    elif config_type=="text":
-        return TextConfigWriter(data,label,colour_lookup)
+    if config_type in interface_types:
+        return interface_types[config_type](data,label,colour_lookup)
     else:
         raise ValueError(f"Unknown configuration type: {config_type}")

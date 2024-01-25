@@ -2,7 +2,7 @@
 import argparse
 import csv
 from typing import Dict
-from .interfaces import get_config_writer
+from .interfaces import get_config_writer, interface_types
 from .colour import load_colour_conf
 
 __version__ = "0.1.0"
@@ -118,7 +118,7 @@ def cli():
         "--type",
         help="Type of iTOL configuration file to generate",
         type=str,
-        choices=["colour_strip","text"],
+        choices=interface_types.keys(),
         required=True
     )
     parser.add_argument(
