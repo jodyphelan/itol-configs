@@ -27,12 +27,12 @@ def run(args: argparse.Namespace) -> None:
 
 def register_subparser(subparsers: argparse._SubParsersAction) -> None:
     """
-    Register subparser for the itol_configs package
+    Register subparser for the itol_config package
     
     Parameters
     ----------
     subparser : argparse.ArgumentParser
-        Subparser object for the itol_configs package
+        Subparser object for the itol_config package
     """
     subparser = subparsers.add_parser('colour_strip', help='Generate a colour strip configuration file')
     subparser.add_argument(

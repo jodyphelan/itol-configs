@@ -1,13 +1,13 @@
 ## API Documentation
 
-::: itol_configs
+::: itol_config
 
-::: itol_configs.interfaces
+::: itol_config.interfaces
 
-::: itol_configs.interfaces.base_interface
+::: itol_config.interfaces.base_interface
 
-::: itol_configs.interfaces.colour_strip
+::: itol_config.interfaces.colour_strip
 
-::: itol_configs.interfaces.text_label
+::: itol_config.interfaces.text_label
 
-::: itol_configs.interfaces.binary_data
+::: itol_config.interfaces.binary_data

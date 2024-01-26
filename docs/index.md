@@ -1,4 +1,4 @@
-# itol-configs
+# itol-config
 
 To annotate trees in [iTOL](https://itol.embl.de/) requres special config files that are time-consuming to create.
 This python package contains functions to create configuration files automatically from a CSV file.
@@ -6,7 +6,7 @@ This python package contains functions to create configuration files automatical
 ## Installation
 
 ```bash
-pip install git+https://github.com/jodyphelan/itol-configs.git
+pip install git+https://github.com/jodyphelan/itol-config.git
 ```
 
 ## CLI Usage
@@ -14,7 +14,7 @@ pip install git+https://github.com/jodyphelan/itol-configs.git
 This command will automatically create a config file for each column in the specified input csv file.
 
 ```bash
-itol-configs --input <input.csv> --out <prefix_for_output_files> --id <id_column> --type <annotation_type>
+itol-config --input <input.csv> --out <prefix_for_output_files> --id <id_column> --type <annotation_type>
 ```
 
 If you you already have colours in mind, you can specify them with the `--colour-conf` option. This requires a toml file with the following format:
@@ -34,7 +34,7 @@ value2 = "colour"
 You can also call the functions in your own code. For example:
 
 ```python
-from itol_configs import get_config_writer
+from itol_config import get_config_writer
 import random
 
 # generate some example data
@@ -63,4 +63,4 @@ If you want to contribute a new annotation type this package, please clone the r
 
 ### Adding a new annotation type
 
-Each annotation type is defined as a class in [itol_configs/interfaces](https://github.com/jodyphelan/itol-configs/tree/main/itol_configs/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples. Make sure to add your new class to `interfaces_types` dictionary in the `__init__.py` file in the same directory.
+Each annotation type is defined as a class in [itol_config/interfaces](https://github.com/jodyphelan/itol-config/tree/main/itol_config/interfaces). The class must inherit from the `ConfigWriter` class and implement the `write` method. Have a look at the existing classes for examples. Make sure to add your new class to `interfaces_types` dictionary in the `__init__.py` file in the same directory.

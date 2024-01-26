@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "itol_configs"
+name = "itol_config"
 authors = [{name = "Jody Phelan", email = "jody.phelan@lshtm.ac.uk"}]
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
@@ -17,4 +17,4 @@ docs = [
 ]
 
 [project.scripts]
-itol-configs = "itol_configs.cli:cli"
+itol-config = "itol_config.cli:cli"
